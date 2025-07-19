@@ -1,0 +1,348 @@
+/* Professional Navbar CSS - Final Optimized Version */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Navbar Container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Section - Fixed alignment and scoping */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  height: 100%;
+  min-height: 64px;
+}
+
+/* Scoped logo styling to ONLY affect navbar logo */
+.navbar .navbar-brand .logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin: auto 0;
+}
+
+/* Navigation Links */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #8b5cf6;
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.nav-link.active {
+  color: #8b5cf6;
+  background-color: rgba(139, 92, 246, 0.2);
+}
+
+/* Search Bar */
+.search-form {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #4b5563;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  font-size: 0.875rem;
+  background-color: #374151;
+  color: #e5e7eb;
+  transition: border-color 0.2s ease;
+  height: 36px;
+}
+
+.search-input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-btn {
+  padding: 0.5rem 1rem;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 36px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.search-btn:hover {
+  background-color: #7c3aed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.search-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+}
+
+/* Search icon styling - for emoji and SVG icons */
+.search-btn svg,
+.search-btn i {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  opacity: 0.9;
+}
+
+/* Emoji icon specific styling */
+.search-btn span {
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* User Actions Section */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-btn, .cart-btn {
+  padding: 0.5rem 1rem;
+  background-color: #374151;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.user-btn:hover, .cart-btn:hover {
+  background-color: #4b5563;
+  border-color: #8b5cf6;
+  color: #c084fc;
+}
+
+.user-btn:focus, .cart-btn:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+}
+
+/* Cart Badge */
+.cart {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1f2937;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  padding: 0.5rem;
+  background-color: #374151;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background-color: #4b5563;
+  color: #8b5cf6;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .navbar-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar-nav.active {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border-bottom: 1px solid #4b5563;
+    color: #e5e7eb;
+    margin-bottom: 0.25rem;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+  }
+
+  .search-form {
+    margin: 0;
+    max-width: 250px;
+    order: 1;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .navbar-actions {
+    gap: 0.5rem;
+  }
+
+  /* Mobile logo adjustment */
+  .navbar .navbar-brand .logo {
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .search-form {
+    max-width: 200px;
+  }
+
+  .search-input {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    height: 32px;
+  }
+
+  .search-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 40px;
+    height: 32px;
+  }
+
+  .search-btn svg,
+  .search-btn i {
+    width: 14px;
+    height: 14px;
+  }
+
+  .navbar .navbar-brand .logo {
+    height: 32px;
+  }
+
+  .user-btn, .cart-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .navbar-nav {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .nav-link {
+    padding: 0.6rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Focus visible for better accessibility */
+.nav-link:focus-visible,
+.search-btn:focus-visible,
+.user-btn:focus-visible,
+.cart-btn:focus-visible,
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}

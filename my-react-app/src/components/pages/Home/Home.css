@@ -1,0 +1,285 @@
+/* Root Variables for Dark Theme */
+:root {
+  --primary-dark: #0a0a0f;
+  --secondary-dark: #1a1a2e;
+  --accent-dark: #16213e;
+  --card-dark: #1e1e2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-accent: #e0e0e0;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --border-radius: 15px;
+  --transition: all 0.3s ease;
+}
+
+/* Global Dark Mode Styles */
+body {
+  background: var(--primary-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, var(--accent-dark) 100%);
+  padding: 4rem 0;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.banner-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-heavy);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner-image:hover {
+  transform: translateY(-5px);
+}
+
+/* Home Content */
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Categories Section */
+.categories {
+  margin-bottom: 4rem;
+}
+
+.categories h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  position: relative;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.categories h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+/* Categories Grid - Fixed for consistent sizing */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* Category Card Link - Remove default link styles */
+.categories-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Category Card - Fixed height for consistency */
+.categories-card {
+  background: var(--card-dark);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 180px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.categories-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+/* Category Icon - Consistent sizing */
+.category-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.categories-card:hover .category-icon {
+  transform: scale(1.1);
+}
+
+/* Category Text - Controlled overflow */
+.categories-card span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-accent);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.categories-card:hover span {
+  color: var(--text-primary);
+}
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  grid-column: 1 / -1;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Focus State for Accessibility */
+.categories-card:focus,
+.categories-card-link:focus .categories-card {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .categories h2 {
+    font-size: 2rem;
+  }
+  
+  .categories-card {
+    padding: 1.5rem 1rem;
+    height: 160px; /* Slightly smaller on mobile */
+  }
+  
+  .category-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .categories-card span {
+    font-size: 1rem;
+  }
+  
+  .home-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-banner {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .categories h2 {
+    font-size: 1.8rem;
+  }
+  
+  .categories-card {
+    height: 140px;
+    padding: 1rem 0.5rem;
+  }
+  
+  .category-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .categories-card span {
+    font-size: 0.9rem;
+  }
+  
+  .hero-banner {
+    padding: 2rem 0;
+  }
+}
+
+/* Dark Mode Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+/* Selection Styles */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: var(--text-primary);
+}
